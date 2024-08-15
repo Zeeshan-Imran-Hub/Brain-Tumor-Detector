@@ -1,5 +1,5 @@
-fastapi
-uvicorn
-torch
-Pillow
-torchvision
+fastapi==0.103.0
+uvicorn== 0.20.0
+torch==2.3.0
+pillow==10.4.0
+torchvision==0.15.2
