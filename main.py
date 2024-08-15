@@ -186,6 +186,3 @@ async def predict_image(file: UploadFile = File(...)):
     """
     return HTMLResponse(content=html_content.format(prediction_result=prediction_result))
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
