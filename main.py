@@ -8,11 +8,15 @@ import torchvision.transforms as transforms
 app = FastAPI()
 
 # Load the entire model
-model = torch.load("C:/Users/ASUS/Desktop/Brain Tumor  Detection/Braintumor-detection/best_brain_tumor_model.pth", map_location=torch.device('cpu'))
+model = torch.load("C:/Users/ASUS/Desktop/Brain Tumor  Detection/Braintumor-detection/best_brain_tumor_model.pth",
+                   map_location=torch.device('cpu'),
+                   weights_only=False)
+
 model.eval()
 
 # Define the preprocessor pipeline
 preprocessor = transforms.Compose([
+    transforms.Grayscale(num_output_channels=3),
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
